@@ -124,8 +124,8 @@
                                     />
                                 </div>
                                 <div class="ml-5">
-                                    <p class="font-medium text-[#1E2B4F]">Cashadi</p>
-                                    <p class="text-sm text-[#AFAEC3]">Senior Front End Developer</p>
+                                    <p class="font-medium text-[#1E2B4F]">Shayna</p>
+                                    <p class="text-sm text-[#AFAEC3]">Product Designer</p>
                                 </div>
                             </div>
                         </div>
