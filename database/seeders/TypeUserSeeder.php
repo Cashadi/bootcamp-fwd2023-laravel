@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\MasterData\TypeUser;
-
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use App\Models\MasterData\TypeUser;
 use Illuminate\Support\Facades\DB;
 
 class TypeUserSeeder extends Seeder

@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\ManagementAccess\DetailUser;
-
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use App\Models\ManagementAccess\DetailUser;
 use Illuminate\Support\Facades\DB;
 
 class DetailUserSeeder extends Seeder
@@ -24,8 +25,9 @@ class DetailUserSeeder extends Seeder
                 'address'        => NULL,
                 'photo'          => NULL,
                 'gender'         => NULL,
-                'created_at'     => '2022-04-22 00:00:00',
-                'updated_at'     => '2022-04-22 00:00:00',
+                'age'            => NULL,
+                'created_at'     => date('Y-m-d H:i:s'),
+                'updated_at'     => date('Y-m-d H:i:s'),
             ],
         ];
 

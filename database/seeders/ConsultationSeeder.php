@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\MasterData\Consultation;
-
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use App\Models\MasterData\Consultation;
 use Illuminate\Support\Facades\DB;
 
 class ConsultationSeeder extends Seeder
