@@ -35,6 +35,7 @@ use App\Http\Controllers\Backsite\ReportTransactionController;
 
 Route::resource('/', LandingController::class);
 
+// frontsite
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     // appointment page
@@ -42,13 +43,18 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::resource('appointment', AppointmentController::class);
 
     // payment page
-    Route::get('payment/success', [PaymentController::class, 'success'])->name('payment.success');
-    Route::get('payment/appointment/{id}', [PaymentController::class, 'payment'])->name('payment.appointment');
+    // grouping route custom from controller or route excluding controller resource
+    Route::controller(PaymentController::class)->group(function() {
+        Route::get('payment/success', 'success')->name('payment.success');
+        Route::get('payment/appointment/{id}', 'payment')->name('payment.appointment');
+        Route::post('payment/callback', 'callback')->name('payment.callback');
+    });
     Route::resource('payment', PaymentController::class);
 
     Route::resource('register_success', RegisterController::class);
 });
 
+// backsite
 Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']], function () {
 
     // dashboard
@@ -93,6 +99,12 @@ Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['aut
 //     return view('welcome');
 // });
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
